@@ -1,16 +1,16 @@
 import mysql from 'mysql2';
-import { IDatabase, IDBconfig } from '../interface/index.js';
+import { IDatabase, IDatabaseConfig } from '../interface/index.js';
 
 export class MySQL implements IDatabase {
 
     private connection;
 
-    constructor(config: IDBconfig) {
+    constructor(config: IDatabaseConfig) {
         this.connection = mysql.createConnection({
-            host: config.DB_HOST,
-            user: config.DB_USER,
-            password: config.DB_PASSWORD,
-            database: config.DB_NAME
+            host: config.host,
+            user: config.user,
+            password: config.password,
+            database: config.name
         })
     }
 

@@ -1,8 +1,8 @@
-import { Clazz, IDBconfig, isIDatabase } from "../../interface";
+import { Clazz, IDatabaseConfig, isIDatabase } from "../../interface";
 import { Container } from "../../Ioc";
 import { NeDB } from "../NeDB.js";
 
-export const Connect = (config: IDBconfig, database?: Clazz) => {
+export const Connect = (config: IDatabaseConfig, database?: Clazz) => {
     return (target: any, propertyKey: any) => {
         if (database === undefined) {
             const newDatabase = Container.getBeanOfInterface(isIDatabase);

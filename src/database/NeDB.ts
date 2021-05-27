@@ -1,11 +1,11 @@
 import nedb from 'nedb'
-import { IDatabase, IDBconfig } from '../interface'
+import { IDatabase, IDatabaseConfig } from '../interface'
 
 export class NeDB implements IDatabase {
     private db: nedb
-    constructor(config: IDBconfig) {
+    constructor(config: IDatabaseConfig) {
         this.db = new nedb({
-            filename: 'nedb/' + config.DB_NAME,
+            filename: 'nedb/' + config.name,
             autoload: true
         })
     }

@@ -9,16 +9,16 @@ export interface GenericClazz<T> {
 
 export interface TypeGuard<T> { (object: any): object is T }
 
-export interface IDBconfig {
-    DB_PORT?: string | undefined,
-    DB_HOST?: string | undefined,
-    DB_USER?: string | undefined,
-    DB_PASSWORD?: string | undefined,
-    DB_NAME?: string | undefined,
+export interface IDatabaseConfig {
+    port?: string | undefined,
+    host?: string | undefined,
+    user?: string | undefined,
+    password?: string | undefined,
+    name?: string | undefined,
 }
 
 export interface IDatabase {
-    find(query: any): Promise<any>
+    find(query: any): Promise<any[]>
     insert(data: any): Promise<any>
 }
 
