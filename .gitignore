@@ -107,3 +107,4 @@ web_modules/
 
 package-lock.json
 session.nedb
+dist
