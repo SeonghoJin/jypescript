@@ -10,12 +10,11 @@ export interface GenericClazz<T> {
 export interface TypeGuard<T> { (object: any): object is T }
 
 export interface IDBconfig {
-    DB_PORT: string | undefined,
-    DB_HOST: string | undefined,
-    DB_PROT: string | undefined,
-    DB_USER: string | undefined,
-    DB_PASSWORD: string | undefined,
-    DB_NAME: string | undefined,
+    DB_PORT?: string | undefined,
+    DB_HOST?: string | undefined,
+    DB_USER?: string | undefined,
+    DB_PASSWORD?: string | undefined,
+    DB_NAME?: string | undefined,
 }
 
 export interface IDatabase {
