@@ -1,8 +1,6 @@
 import "reflect-metadata"
-import { Clazz } from "../../interface/Clazz.js";
-import { TypeGuard } from "../../interface/TypeGuard.js";
-import Container from "../Container.js";
-import { Injector } from "../Injector.js";
+import { Clazz, TypeGuard } from "../../interface/index.js";
+import { Container, Injector } from "../index.js";
 export const AutoWired = <T>(selectType?: Clazz | TypeGuard<T>) => {
 
     return (target: any, propertyKey: string) => {

@@ -1,9 +1,7 @@
-import { Clazz } from "../interface/Clazz";
-import { TypeGuard } from "../interface/TypeGuard";
+import { Clazz, TypeGuard } from "../interface";
 
-
-export default new class {
-    private container: Map<Clazz, any>;
+export const Container = new class {
+    container: Map<Clazz, any>;
     constructor() {
         this.container = new Map<Clazz, any>();
     }

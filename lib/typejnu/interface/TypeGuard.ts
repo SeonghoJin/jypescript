@@ -1,1 +1,0 @@
-export interface TypeGuard<T> { (object: any): object is T }

@@ -1,21 +1,25 @@
 import mysql from 'mysql2';
-var MySQL = /** @class */ (function () {
-    function MySQL(config) {
+import { IDatabase, IDBconfig } from '../interface/index.js';
+
+export class MySQL implements IDatabase {
+
+    private connection;
+
+    constructor(config: IDBconfig) {
         this.connection = mysql.createConnection({
             host: config.DB_HOST,
             user: config.DB_USER,
             password: config.DB_PASSWORD,
             database: config.DB_NAME
-        });
+        })
     }
-    MySQL.prototype.find = function (query) {
+
+    find(query: any): Promise<any[]> {
         this.connection.query("desc table");
         throw new Error("Method not implemented.");
-    };
-    MySQL.prototype.insert = function (data) {
+    }
+    insert(data: any): Promise<void> {
         this.connection.query("desc table");
         throw new Error("Method not implemented.");
-    };
-    return MySQL;
-}());
-export { MySQL };
+    }
+}

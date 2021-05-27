@@ -1,5 +1,5 @@
-import { Clazz } from "../interface/Clazz";
-import Container from "./Container.js";
+import { Clazz } from "../interface/index.js";
+import { Container } from "./index.js";
 
 export const Injector = (target: Clazz) => {
 
