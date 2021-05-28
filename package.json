@@ -1,7 +1,7 @@
 {
   "name": "typejnu",
   "version": "1.1.9",
-  "description": "Jnu Typescript FrameWork",
+  "description": "study Typescript Library",
   "scripts": {
     "test": "nodemon --exec mocha test/**/*.ts -r ts-node/register --extensions ts,tsx"
   },
