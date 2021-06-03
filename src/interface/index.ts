@@ -1,12 +1,4 @@
 
-export interface Clazz {
-    new(...args: any[]): any
-}
-
-export interface GenericClazz<T> {
-    new(...args: any[]): any
-}
-
 export interface TypeGuard<T> { (object: any): object is T }
 
 export interface IDatabaseConfig {
@@ -29,4 +21,12 @@ export const isIDatabase: TypeGuard<IDatabase> = (database: any): database is ID
 
 export interface Repository<T> {
     database: IDatabase;
+}
+
+export interface Clazz {
+    new(...args: any[]): any
+}
+
+export interface GenericClazz<T> {
+    new(...args: any[]): any
 }

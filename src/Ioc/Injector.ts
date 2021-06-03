@@ -1,8 +1,7 @@
 import { Clazz } from "../interface/index.js";
 import { Container } from "./index.js";
-
-export const Injector = (target: Clazz) => {
-
+import "reflect-metadata"
+export const inject = (target: Clazz) => {
     const property = Reflect.ownKeys(target.prototype).map((key: any) => {
         return Reflect.getMetadata('design:type', target.prototype, key);
     }).filter((value) => {
@@ -10,7 +9,7 @@ export const Injector = (target: Clazz) => {
     });
 
     property.map((prop: any) => {
-        Injector(prop);
+        inject(prop);
     })
-    Container.set(target);
+    return Container.set(target);
 }

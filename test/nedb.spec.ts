@@ -34,4 +34,4 @@ class Test{
 
 }
 
-new Test();
+// new Test();
