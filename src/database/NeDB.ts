@@ -10,6 +10,12 @@ export class NeDB implements IDatabase {
         })
     }
 
+    getAllData(): Promise<any[]> {
+        return new Promise<any[]>((res, rej) => {
+            res(this.db.getAllData());
+        })
+    }
+
     insert(data: any): Promise<void> {
         return new Promise<void>((res, rej) => {
             this.db.insert(data, (err, doc: any) => {

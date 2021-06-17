@@ -12,6 +12,7 @@ export interface IDatabaseConfig {
 export interface IDatabase {
     find(query: any): Promise<any[]>
     insert(data: any): Promise<any>
+    getAllData(): Promise<any[]>
 }
 
 export const isIDatabase: TypeGuard<IDatabase> = (database: any): database is IDatabase => {

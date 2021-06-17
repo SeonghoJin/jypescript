@@ -13,6 +13,9 @@ export class MySQL implements IDatabase {
             database: config.name
         })
     }
+    getAllData(): Promise<any[]> {
+        throw new Error('Method not implemented.');
+    }
 
     find(query: any): Promise<any[]> {
         this.connection.query("desc table");

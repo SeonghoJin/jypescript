@@ -1,32 +1,35 @@
-import {expect} from 'chai'
-import {describe} from 'mocha'
-import { isMetaProperty } from 'typescript';
-import * as typejnu from '../dist'
-import { isIDatabase, NeDB, IDatabase, Connect, IDatabaseConfig,  } from '../dist'
+import { expect } from 'chai'
+import { describe } from 'mocha'
+import { isIDatabase, NeDB, IDatabase, Connect, IDatabaseConfig, } from '../dist'
 
-const databaseConfig : IDatabaseConfig = {
-    name : "nedbtest"
+const databaseConfig: IDatabaseConfig = {
+    name: "nedbtest"
 };
 
-class Test{
+class Test {
 
     @Connect(databaseConfig)
-    database : IDatabase;
+    database: IDatabase;
 
-    constructor(){
+    constructor() {
 
         describe("test nedb", () => {
 
             it("insert 성공", async () => {
                 await this.database.insert({
                     testId: "test",
-                    testPassword:"password"
+                    testPassword: "password"
                 });
                 const item = await this.database.find({
-                    testId : "test"
+                    testId: "test"
                 });
 
                 expect(item.length).to.not.equal(0);
+            });
+
+            it("getAllData 성공", async () => {
+                const items = await this.database.getAllData();
+                expect(items.length).to.not.equal(0);
             })
         });
 
@@ -34,4 +37,4 @@ class Test{
 
 }
 
-// new Test();
+new Test();
