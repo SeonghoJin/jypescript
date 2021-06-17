@@ -31,6 +31,26 @@ class Test {
                 const items = await this.database.getAllData();
                 expect(items.length).to.not.equal(0);
             })
+
+            it("update 성공", async () => {
+                await this.database.insert({
+                    test: "1"
+                });
+
+                await this.database.update({
+                    test: "1"
+                },
+                    {
+                        test: "2"
+                    }
+                );
+
+                const items = await this.database.find({
+                    test: "2"
+                });
+
+                expect(items.length).to.not.equal(0);
+            })
         });
 
     }

@@ -42,11 +42,11 @@ class Test {
                 assert.strictEqual(this.a2, this.a3);
             });
 
-            // it('interface type inject instance test', () => {
-            //     assert.notStrictEqual(this.b1, undefined, "b1 is undefined");
-            //     assert.notStrictEqual(this.b2, undefined, "b2 is undefined");
-            //     assert.strictEqual(this.b3, undefined, "b3 is undefined");
-            // });
+            it('interface type inject instance test', () => {
+                assert.notStrictEqual(this.b1, undefined, "b1 is undefined");
+                assert.notStrictEqual(this.b2, undefined, "b2 is undefined");
+                assert.notStrictEqual(this.b3, undefined, "b3 is undefined");
+            });
 
             it('interface type singleton test', () => {
                 assert.equal(this.b1, this.b2);

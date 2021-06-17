@@ -13,6 +13,9 @@ export class MySQL implements IDatabase {
             database: config.name
         })
     }
+    update(query: any, updateQuery?: any): Promise<void> {
+        throw new Error('Method not implemented.');
+    }
     getAllData(): Promise<any[]> {
         throw new Error('Method not implemented.');
     }

@@ -32,4 +32,12 @@ export class NeDB implements IDatabase {
         })
     }
 
+    update(query: any, updateQuery?: any): Promise<void> {
+        return new Promise<void>((res, rej) => {
+            this.db.update(query, updateQuery, { multi: true }, function (err, numReplaced) {
+                res();
+            })
+        })
+    }
+
 }
