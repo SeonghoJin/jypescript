@@ -10,7 +10,6 @@ class Test {
 
     @Connect(databaseConfig)
     database: IDatabase;
-
     constructor() {
 
         describe("test nedb", () => {
@@ -50,6 +49,19 @@ class Test {
                 });
 
                 expect(items.length).to.not.equal(0);
+            })
+
+            it("delete 성공", async () => {
+                await this.database.insert({
+                    "1": "1"
+                });
+                await this.database.remove({
+                    "1": "1"
+                });
+                const items = await this.database.find({
+                    "1": "1"
+                })
+                expect(items.length).equal(0);
             })
         });
 

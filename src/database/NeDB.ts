@@ -9,6 +9,13 @@ export class NeDB implements IDatabase {
             autoload: true
         })
     }
+    remove(query: any): Promise<any> {
+        return new Promise<void>((res, rej) => {
+            this.db.remove(query, {}, () => {
+                res();
+            })
+        })
+    }
 
     getAllData(): Promise<any[]> {
         return new Promise<any[]>((res, rej) => {

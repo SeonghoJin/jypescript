@@ -1,6 +1,6 @@
 {
   "name": "jypescript",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "typescript like java",
   "scripts": {
     "test": "nodemon --exec mocha test/**/*.ts -r ts-node/register --extensions ts,tsx"

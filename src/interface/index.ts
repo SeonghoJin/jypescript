@@ -14,6 +14,7 @@ export interface IDatabase {
     insert(data: any): Promise<any>
     getAllData(): Promise<any[]>
     update(query: any, updateQuery?: any): Promise<void>;
+    remove(query: any): Promise<void>
 }
 
 export const isIDatabase: TypeGuard<IDatabase> = (database: any): database is IDatabase => {
