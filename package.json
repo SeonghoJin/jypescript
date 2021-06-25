@@ -3,7 +3,8 @@
   "version": "1.0.3",
   "description": "typescript like java",
   "scripts": {
-    "test": "nodemon --exec mocha test/**/*.ts -r ts-node/register --extensions ts,tsx"
+    "test": "nodemon --exec mocha test/**/*.ts -r ts-node/register --extensions ts,tsx",
+    "dev": "tsc -w"
   },
   "author": "",
   "license": "ISC",
