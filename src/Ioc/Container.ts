@@ -31,7 +31,7 @@ export const Container = new class {
         return item;
     }
 
-    getBean<T>(typeGuard: TypeGuard<T>): T | null {
+    getBeanByTypeGuard<T>(typeGuard: TypeGuard<T>): T | null {
         let item: T | null = null;
 
         this.container.forEach((value, key) => {
