@@ -3,13 +3,17 @@ import { Clazz, TypeGuard } from "../interface";
 export const Container = new class {
 
     container: Map<Clazz, any>;
+    injectable: Set<Function>;
 
     constructor() {
         this.container = new Map<Clazz, any>();
+        this.injectable = new Set<Function>();
     }
 
     createInstance(clazz: Clazz, ...args: any[]) {
-        return new clazz(...args);
+        const item = new clazz(...args);
+        this.container.set(clazz, item);
+        return item;
     }
 
     set(clazz: Clazz, ...args: any[]) {
@@ -18,7 +22,7 @@ export const Container = new class {
             return item;
         }
         item = this.createInstance(clazz, args);
-        this.container.set(clazz, item);
+        this.resolve(item);
         return item;
     }
 
@@ -26,7 +30,6 @@ export const Container = new class {
         let item = this.container.get(clazz);
         if (item == null) {
             item = this.createInstance(clazz, args);
-            this.container.set(clazz, item);
         }
         return item;
     }
@@ -34,7 +37,7 @@ export const Container = new class {
     getBeanByTypeGuard<T>(typeGuard: TypeGuard<T>): T | null {
         let item: T | null = null;
 
-        this.container.forEach((value, key) => {
+        this.container.forEach((value) => {
             if (typeGuard(value)) {
                 item = value;
                 return;
@@ -42,6 +45,18 @@ export const Container = new class {
         });
 
         return item;
+    }
+
+    resolve(item: any) {
+        this.injectable.forEach((callback) => {
+            if (callback(item)) {
+                this.injectable.delete(callback);
+            }
+        });
+    }
+
+    insertInjectable(callback: Function) {
+        this.injectable.add(callback);
     }
 
 }
