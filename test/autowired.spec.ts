@@ -57,11 +57,11 @@ try {
 
     describe("autoWiredTest", () => {
         it("class AutoWired Test", () => {
-            assert.instanceOf(autoWiredTest.a1, A, "a1 is " + autoWiredTest.a1)
-            assert.instanceOf(autoWiredTest.a2, A, "a2 is " + autoWiredTest.a2)
-            assert.instanceOf(autoWiredTest.a3, A, "a3 is " + autoWiredTest.a3)
-            assert.strictEqual(autoWiredTest.a1, autoWiredTest.a2, autoWiredTest.a1 + " " + autoWiredTest.a2);
-            assert.notStrictEqual(autoWiredTest.a2, autoWiredTest.a3, autoWiredTest.a2 + " " + autoWiredTest.a3)
+            assert.instanceOf(autoWiredTest.a1, A, "a1 is an instance of A");
+            assert.instanceOf(autoWiredTest.a2, A, "a2 is an instance of A");
+            assert.instanceOf(autoWiredTest.a3, A, "a3 is an instance of A");
+            assert.strictEqual(autoWiredTest.a1, autoWiredTest.a2, "these are equal");
+            assert.notStrictEqual(autoWiredTest.a2, autoWiredTest.a3, "these are equal");
         })
 
         it("interface AutoWired Test", () => {
