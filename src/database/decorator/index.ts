@@ -5,7 +5,7 @@ import { NeDB } from "../NeDB.js";
 export const Connect = (config: IDatabaseConfig, database?: Clazz) => {
     return (target: any, propertyKey: any) => {
         if (database === undefined) {
-            const newDatabase = Container.getBeanOfInterface(isIDatabase);
+            const newDatabase = Container.getBeanByTypeGuard(isIDatabase);
             if (newDatabase === null) {
                 Connect(config, NeDB)(target, propertyKey);
             } else {
