@@ -29,7 +29,6 @@ export const AutoWired = <T>(autoWiredArgs?: IAutoWiredArgs<T> | undefined) => {
                 Container.insertInjectable((item: any) => {
                     if (autoWiredArgs.typeGuard != null) {
                         if (autoWiredArgs.typeGuard(item)) {
-                            console.log(item);
                             Reflect.defineProperty(target, propertyKey, {
                                 value: item
                             });
