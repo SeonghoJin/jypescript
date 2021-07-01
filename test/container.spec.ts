@@ -1,13 +1,17 @@
 import { assert } from "chai";
 import { Container, TypeGuard } from "../dist";
 
-class A { }
+class A {
+    constructor() {
+    }
+}
 interface IB {
     test: () => void;
 }
 class B implements IB {
     test = () => {
-        console.log(1);
+    }
+    constructor() {
     }
 }
 
